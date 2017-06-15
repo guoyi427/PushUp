@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target">
+                    <items>
+                        <button width="1" alignment="left" title="开始" id="Nvr-MA-HD7">
+                            <connections>
+                                <action selector="startButtonAction" destination="AgC-eL-Hgc" id="qgc-2v-cN1"/>
+                            </connections>
+                        </button>
+                        <group width="1" alignment="left" id="4L2-cM-HVT">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="数量：" id="hYC-bF-UdS"/>
+                                <label alignment="left" verticalAlignment="center" text="0" id="jEF-2t-XtK"/>
+                            </items>
+                        </group>
+                        <label width="136" alignment="left" text="0" textAlignment="left" id="RYg-5D-tZT"/>
+                        <label width="136" alignment="left" text="0" id="ohg-1D-xII"/>
+                        <label width="136" alignment="left" text="0" id="GmA-bJ-QjR"/>
+                    </items>
+                    <connections>
+                        <outlet property="pitchLabel" destination="ohg-1D-xII" id="NBe-r2-SqA"/>
+                        <outlet property="pushUpCountLabel" destination="jEF-2t-XtK" id="JRM-DK-RMr"/>
+                        <outlet property="rollLabel" destination="RYg-5D-tZT" id="UDZ-Q7-AUo"/>
+                        <outlet property="yawLabel" destination="GmA-bJ-QjR" id="vwN-3m-car"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="380"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Watch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
