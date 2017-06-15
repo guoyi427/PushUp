@@ -9,6 +9,7 @@
 import WatchKit
 import Foundation
 import CoreMotion
+import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
     
@@ -22,6 +23,7 @@ class InterfaceController: WKInterfaceController {
     
     fileprivate let _motionManager = CMMotionManager()
     fileprivate let _device = WKInterfaceDevice.current()
+    fileprivate let _session = WCSession.default()
 
     fileprivate var _isUp = false
     fileprivate var _isDown = false
@@ -78,6 +80,23 @@ class InterfaceController: WKInterfaceController {
                 self._isDown = false
                 self.pushUpCountLabel.setText("\(self._pushUpCount)")
                 self._device.play(.success)
+            }
+        }
+    }
+    @IBAction func endButtonAction() {
+        _session.activate()
+        _session.delegate = self
+        
+    }
+}
+
+extension InterfaceController: WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        if activationState == .activated {
+            _session.sendMessage(["count":_pushUpCount], replyHandler: { (responseDic) in
+                debugPrint(responseDic)
+            }) { (error) in
+                debugPrint(error)
             }
         }
     }

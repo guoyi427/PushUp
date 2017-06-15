@@ -28,6 +28,11 @@
                         <label width="136" alignment="left" text="0" textAlignment="left" id="RYg-5D-tZT"/>
                         <label width="136" alignment="left" text="0" id="ohg-1D-xII"/>
                         <label width="136" alignment="left" text="0" id="GmA-bJ-QjR"/>
+                        <button width="1" alignment="left" title="结束" id="L0T-AV-lxw">
+                            <connections>
+                                <action selector="endButtonAction" destination="AgC-eL-Hgc" id="GCD-Av-ill"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="pitchLabel" destination="ohg-1D-xII" id="NBe-r2-SqA"/>
